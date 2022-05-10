@@ -15,7 +15,6 @@
   "compilerOptions": {
     "module": "CommonJS"
   },
-  "type": "module",
   "author": "",
   "license": "ISC",
   "dependencies": {
