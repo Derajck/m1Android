@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "engines": {
+    "node": "16.10.0"
+  },
   "scripts": {
     "start": "nodemon --exec npx ts-node  src/server.ts",
     "test": "echo \"Error: no test specified\" && exit 1",
