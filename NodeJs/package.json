@@ -8,7 +8,7 @@
   },
   "scripts": {
     "start:dev": "nodemon --exec npx ts-node  src/server.ts",
-    "start": "node --loader ts-node  src/server.ts",
+    "start": "ts-node  src/server.ts",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint -c .eslintrc.js --ext .ts src"
   },
