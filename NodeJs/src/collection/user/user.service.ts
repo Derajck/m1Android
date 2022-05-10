@@ -44,16 +44,12 @@ class UserService {
       .exec();
   }
 
-  async getDeliverers(): Promise<User[] | null> {
-    return userModel.find({ "userType.name": "Livreur" }).exec();
-  }
-
   async signUp(item: User): Promise<AuthenticationResponse | null> {
     delete item._id;
     const isExisting = (await userModel
       .findOne({ login: item.login })
       .exec()) as User;
-    if (!isExisting && item.login.includes("@")) {
+    if (!isExisting) {
       item.password = await bcrypt.hash(item.password as string, 10);
       const user = (await this.create(item)) as User;
       return this.getSignedUser(user);
@@ -92,7 +88,6 @@ class UserService {
     const user = {
       _id: client._id,
       login: client.login,
-      userType: client.userType,
       firstName: client.firstName,
       lastName: client.lastName,
     };
@@ -105,6 +100,11 @@ class UserService {
     oldPassword: string,
   ): Promise<boolean> {
     const compare = await bcrypt.compare(newPassword, oldPassword);
+    // let compare = false;
+    // console.log(newPassword, oldPassword);
+    // newPassword === oldPassword
+    //   ? (compare = true)
+    //   : (compare = false);
     return compare;
   }
 }

@@ -31,13 +31,6 @@ class UserRouter {
       );
 
     this.router
-      .route("/deliverer")
-      .get(
-        passport.authenticate("jwt", { session: false }),
-        userController.getDeliverers.bind(userController),
-      );
-
-    this.router
       .route("/")
       .get(
         passport.authenticate("jwt", { session: false }),

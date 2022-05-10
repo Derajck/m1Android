@@ -81,18 +81,6 @@ class UserController implements ControllerRead, ControllerWrite {
       next,
     );
   }
-
-  getDeliverers(
-    req: Request,
-    res: Response,
-    next: NextFunction,
-  ): void {
-    wrapToSendBackResponse<User[] | null>(
-      userService.getDeliverers(),
-      res,
-      next,
-    );
-  }
 }
 
 export const userController = new UserController();
