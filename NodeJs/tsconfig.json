@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "CommonJs",
+    "outDir": "dist",
+    "esModuleInterop": true,
+    "sourceMap": true,
+    "types": ["@types/webrtc"]
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules", ".vscode"]
+}
