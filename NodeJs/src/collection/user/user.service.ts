@@ -91,7 +91,6 @@ class UserService {
       firstName: client.firstName,
       lastName: client.lastName,
     };
-    // await this.sendSignupSuccessMail(createdClient);
     return this.getSignedUser(user);
   }
 
@@ -100,11 +99,6 @@ class UserService {
     oldPassword: string,
   ): Promise<boolean> {
     const compare = await bcrypt.compare(newPassword, oldPassword);
-    // let compare = false;
-    // console.log(newPassword, oldPassword);
-    // newPassword === oldPassword
-    //   ? (compare = true)
-    //   : (compare = false);
     return compare;
   }
 }

@@ -3,10 +3,6 @@ import { User } from "./user.interface";
 
 export interface UserDocument extends User, mongoose.Document {}
 
-export const userTypeSchema = new mongoose.Schema({
-  name: { type: String, required: true },
-});
-
 export const userSchema = new mongoose.Schema({
   firstName: { type: String, required: false },
   lastName: { type: String, required: false },
