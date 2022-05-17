@@ -29,7 +29,7 @@ class ProgresssionController
     res: Response,
     next: NextFunction,
   ): void {
-    wrapToSendBackResponse<Progression | null>(
+    wrapToSendBackResponse<Progression[] | null>(
       progressionService.getProgressionByUser(req.body),
       res,
       next,

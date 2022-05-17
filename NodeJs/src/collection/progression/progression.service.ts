@@ -18,8 +18,8 @@ class ProgressionService {
 
   async getProgressionByUser(
     user: User,
-  ): Promise<Progression | null> {
-    return progressionModel.findOne({ "user._id": user._id }).exec();
+  ): Promise<Progression[] | null> {
+    return progressionModel.find({ "user._id": user._id }).exec();
   }
 
   async delete(id: string): Promise<boolean> {

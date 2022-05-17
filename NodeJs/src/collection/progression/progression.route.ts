@@ -12,6 +12,14 @@ class ProgressionRouter {
 
   private init() {
     this.router
+      .route("/user")
+      .get(
+        passport.authenticate("jwt", { session: false }),
+        progressionController.getProgressionByUser.bind(
+          progressionController,
+        ),
+      );
+    this.router
       .route("/")
       .get(
         passport.authenticate("jwt", { session: false }),
@@ -20,6 +28,10 @@ class ProgressionRouter {
       .put(
         passport.authenticate("jwt", { session: false }),
         progressionController.update.bind(progressionController),
+      )
+      .post(
+        passport.authenticate("jwt", { session: false }),
+        progressionController.create.bind(progressionController),
       );
     this.router
       .route("/:progressionId")
@@ -30,15 +42,6 @@ class ProgressionRouter {
       .delete(
         passport.authenticate("jwt", { session: false }),
         progressionController.delete.bind(progressionController),
-      );
-
-    this.router
-      .route("/progression")
-      .get(
-        passport.authenticate("jwt", { session: false }),
-        progressionController.getProgressionByUser.bind(
-          progressionController,
-        ),
       );
   }
 }
